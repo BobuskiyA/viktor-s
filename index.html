@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SP Viktor</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      .side-menu {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding: 0;
+        padding-top: 60px;
+        margin: 0;
+      }
+
+      .side-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .side-menu li {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #818181;
+      }
+
+      .side-menu a {
+        text-decoration: none;
+        color: #818181;
+        font-size: 18px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      .side-menu a:hover {
+        color: #f1f1f1;
+      }
+
+      .menu-toggle {
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1;
+        color: #818181;
+      }
+
+      .content {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      #stav table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      #stav th,
+      #stav td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      #stav th {
+        background-color: #f2f2f2;
+      }
+
+      #zaver ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #zaver ul li {
+        margin-bottom: 10px;
+      }
+
+      #zaver ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      #zaver ul li a:hover {
+        color: #007bff;
+      }
+
+      #kontakt img {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+      }
+
+      #kontakt a {
+        color: #3498db;
+      }
+
+      #kontakt a:hover {
+        color: #2980b9;
+      }
+
+      /* Додаткові стилі для прикладу */
+      h3 {
+        color: #2c3e50;
+      }
+
+      p {
+        color: #7f8c8d;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      <ul class="side-menu">
+        <li><a href="#Domov" onclick="showContent('domov')">Domov</a></li>
+        <li><a href="#Uvod" onclick="showContent('uvod')">Uvod</a></li>
+        <li><a href="#Stav" onclick="showContent('stav')">Stav</a></li>
+        <li>
+          <a href="#Budúcnosť" onclick="showContent('budúcnosť')">Budúcnosť</a>
+        </li>
+        <li><a href="#Zaver" onclick="showContent('zaver')">Zaver</a></li>
+        <li><a href="#Kontakt" onclick="showContent('kontakt')">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="content" id="domov-content" onclick="closeMenu()">
+      <div id="domov">
+        <h2>Vitajte na našej stránke Business Intelligence!</h2>
+        <p>
+          Tu vám povieme, ako BI môže uľahčiť rozhodovanie a optimalizovať
+          firemné procesy. Pozrite si naše podstránky pre detaily.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="content"
+      id="uvod-content"
+      style="display: none"
+      onclick="closeMenu()"
+    >
+      <div id="uvod">
+        <h2>Úvod do Business Intelligence</h2>
+
+        <h3>Čo je Business Intelligence?</h3>
+        <p>
+          Business Intelligence (BI) je kľúč k úspechu vášho podnikania. Obrázky
+          grafov a diagramov zobrazujú fázy zbierania, spracovania a analýzy
+          údajov.
+        </p>
+
+        <h3>Prečo je BI dôležité pre podnikanie?</h3>
+        <p>
+          Zahrňte infografiku, ktorá ukazuje pozitívny vplyv BI na rozhodovanie.
+        </p>
+      </div>
+    </div>
+    <div
+      class="content"
+      id="stav-content"
+      style="display: none"
+      onclick="closeMenu()"
+    >
+      <div id="stav">
+        <h2>Stav v oblasti Business Intelligence</h2>
+
+        <strong>Trendy a inovácie:</strong>
+        <p>
+          Obrázky technologických inovácií v oblasti BI a fotografie
+          predstaviteľov veľkých firiem, ktoré úspešne využívajú BI.
+        </p>
+
+        <strong>Rola BI v korporátnom riadení:</strong>
+        <p>
+          Grafické znázornenie vplyvu BI na korporátne riadenie a rozhodovanie o
+          stratégii.
+        </p>
+
+        <h3>Analytická Tabuľka</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Kategória</th>
+              <th>Stav</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zber dát</td>
+              <td>Zvyšovanie sa</td>
+              <td>Rast</td>
+            </tr>
+            <tr>
+              <td>Analýza dát</td>
+              <td>Efektívna</td>
+              <td>Inovácie</td>
+            </tr>
+            <tr>
+              <td>Spracovanie dát</td>
+              <td>Automatizované</td>
+              <td>Škálovanie</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Táto tabuľka ukazuje úspešný stav rôznych kategórií analýzy a ich
+          trend rozvoja v modernom podnikaní.
+        </p>
+      </div>
+    </div>
+    <div
+      class="content"
+      id="budúcnosť-content"
+      style="display: none"
+      onclick="closeMenu()"
+    >
+      <div id="budúcnosť">
+        <h2>Budúcnosť Business Intelligence</h2>
+
+        <h3>Technologické trendy:</h3>
+        <p>
+          Obrázky technológií budúcnosti, ako napríklad analýza v oblakoch a
+          spracovanie údajov v reálnom čase.
+        </p>
+
+        <h3>Flexibilita a prispôsobivosť:</h3>
+        <p>
+          Koláž s obrázkami lídrov v oblasti BI a futuristickými technológiami.
+        </p>
+      </div>
+    </div>
+    <div
+      class="content"
+      id="zaver-content"
+      style="display: none"
+      onclick="closeMenu()"
+    >
+      <div id="zaver">
+        <h2>
+          Ďakujeme za návštevu! Na fotografiách tímu uvidíte, aká oddaná a
+          kreatívna je naša skupina. Vždy sme pripravení vám pomôcť s vašimi
+          úlohami!
+        </h2>
+
+        <h3>Zdroje</h3>
+
+        <ul>
+          <li>
+            <a href="https://techcrunch.com" target="_blank">techcrunch.com</a>
+          </li>
+          <li><a href="https://hbr.org" target="_blank">hbr.org</a></li>
+          <li>
+            <a href="https://forrester.com" target="_blank">forrester.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="content"
+      id="kontakt-content"
+      style="display: none"
+      onclick="closeMenu()"
+    >
+      <div id="kontakt">
+        <h3>Kontakt</h3>
+        <p>
+          Obráťte sa na nás a radi vám pomôžeme. Pridajte kontaktné informácie
+          spolu s obrázkami vizitiek a ilustráciou komunikácie prostredníctvom
+          e-mailov.
+        </p>
+
+        <img src="viktor.jpg" alt="Vizitka" />
+
+        <p>
+          Email:
+          <a href="mailto:viktor.stankovych@student.tuke.sk"
+            >viktor.stankovych@student.tuke.sk</a
+          >
+        </p>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Перевіряємо, чи є збережена сторінка в sessionStorage
+        var currentPage = sessionStorage.getItem("currentPage");
+
+        // Завантажуємо відповідний блок контенту, якщо сторінка була збережена
+        if (currentPage) {
+          showContent(currentPage);
+        }
+      });
+
+      function toggleMenu() {
+        var sideMenu = document.querySelector(".side-menu");
+        sideMenu.style.width = sideMenu.style.width === "250px" ? "0" : "250px";
+      }
+
+      function showContent(page) {
+        var contentDivs = document.querySelectorAll(".content");
+        contentDivs.forEach(function (div) {
+          div.style.display = "none";
+        });
+
+        var selectedContent = document.getElementById(page + "-content");
+        if (selectedContent) {
+          selectedContent.style.display = "flex";
+
+          // Зберігаємо поточну сторінку в sessionStorage
+          sessionStorage.setItem("currentPage", page);
+        }
+
+        // Закриття бічного меню після вибору сторінки (опціонально)
+        var sideMenu = document.querySelector(".side-menu");
+        sideMenu.style.width = "0";
+      }
+
+      // Обробник подій для закриття меню при кліці на пусте місце
+      function closeMenu() {
+        var sideMenu = document.querySelector(".side-menu");
+        sideMenu.style.width = "0";
+      }
+    </script>
+  </body>
+</html>
