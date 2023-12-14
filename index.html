@@ -6,11 +6,28 @@
     <title>SP Viktor</title>
     <style>
       body {
+        color: white;
         margin: 0;
         padding: 0;
         font-family: "Arial", sans-serif;
+        overflow: hidden; /* Запобігає прокрутці нашого відео фону */
       }
 
+      .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1; /* Розташовуємо відео позаду іншого контенту */
+      }
+
+      video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
       .side-menu {
         height: 100vh;
         width: 0;
@@ -23,6 +40,7 @@
         padding: 0;
         padding-top: 60px;
         margin: 0;
+        z-index: 1000;
       }
 
       .side-menu ul {
@@ -43,6 +61,7 @@
         font-size: 18px;
         display: block;
         transition: color 0.3s;
+        color: white;
       }
 
       .side-menu a:hover {
@@ -56,7 +75,7 @@
         top: 20px;
         left: 20px;
         z-index: 1;
-        color: #818181;
+        z-index: 1001;
       }
 
       .content {
@@ -65,6 +84,19 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        padding: 0 10px 0 10px;
+      }
+
+      .content-body {
+        backdrop-filter: blur(5px); /* Задаємо блюр тексту */
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Додаємо прозорий фон для збільшення контрастності */
+        padding: 20px;
+        border-radius: 10px;
       }
 
       #stav table {
@@ -95,7 +127,7 @@
 
       #zaver ul li a {
         text-decoration: none;
-        color: #333;
+        color: white;
         font-weight: bold;
       }
 
@@ -111,23 +143,24 @@
 
       #kontakt a {
         color: #3498db;
+        text-decoration: none;
       }
 
       #kontakt a:hover {
         color: #2980b9;
       }
 
-      /* Додаткові стилі для прикладу */
-      h3 {
-        color: #2c3e50;
-      }
-
       p {
-        color: #7f8c8d;
+        opacity: 0.8;
       }
     </style>
   </head>
   <body>
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="video.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
       <ul class="side-menu">
@@ -143,7 +176,7 @@
     </div>
 
     <div class="content" id="domov-content" onclick="closeMenu()">
-      <div id="domov">
+      <div class="content-body" id="domov">
         <h2>Vitajte na našej stránke Business Intelligence!</h2>
         <p>
           Tu vám povieme, ako BI môže uľahčiť rozhodovanie a optimalizovať
@@ -158,7 +191,7 @@
       style="display: none"
       onclick="closeMenu()"
     >
-      <div id="uvod">
+      <div class="content-body" id="uvod">
         <h2>Úvod do Business Intelligence</h2>
 
         <h3>Čo je Business Intelligence?</h3>
@@ -180,7 +213,7 @@
       style="display: none"
       onclick="closeMenu()"
     >
-      <div id="stav">
+      <div class="content-body" id="stav">
         <h2>Stav v oblasti Business Intelligence</h2>
 
         <strong>Trendy a inovácie:</strong>
@@ -235,7 +268,7 @@
       style="display: none"
       onclick="closeMenu()"
     >
-      <div id="budúcnosť">
+      <div class="content-body" id="budúcnosť">
         <h2>Budúcnosť Business Intelligence</h2>
 
         <h3>Technologické trendy:</h3>
@@ -256,7 +289,7 @@
       style="display: none"
       onclick="closeMenu()"
     >
-      <div id="zaver">
+      <div class="content-body" id="zaver">
         <h2>
           Ďakujeme za návštevu! Na fotografiách tímu uvidíte, aká oddaná a
           kreatívna je naša skupina. Vždy sme pripravení vám pomôcť s vašimi
@@ -282,7 +315,7 @@
       style="display: none"
       onclick="closeMenu()"
     >
-      <div id="kontakt">
+      <div class="content-body" id="kontakt">
         <h3>Kontakt</h3>
         <p>
           Obráťte sa na nás a radi vám pomôžeme. Pridajte kontaktné informácie
