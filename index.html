@@ -10,7 +10,7 @@
         margin: 0;
         padding: 0;
         font-family: "Arial", sans-serif;
-        overflow: hidden; /* Запобігає прокрутці нашого відео фону */
+        overflow: hidden;
       }
 
       .video-container {
@@ -20,7 +20,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        z-index: -1; /* Розташовуємо відео позаду іншого контенту */
+        z-index: -1;
       }
 
       video {
@@ -88,13 +88,8 @@
       }
 
       .content-body {
-        backdrop-filter: blur(5px); /* Задаємо блюр тексту */
-        background: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Додаємо прозорий фон для збільшення контрастності */
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.5);
         padding: 20px;
         border-radius: 10px;
       }
@@ -335,10 +330,8 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Перевіряємо, чи є збережена сторінка в sessionStorage
         var currentPage = sessionStorage.getItem("currentPage");
 
-        // Завантажуємо відповідний блок контенту, якщо сторінка була збережена
         if (currentPage) {
           showContent(currentPage);
         }
@@ -359,16 +352,13 @@
         if (selectedContent) {
           selectedContent.style.display = "flex";
 
-          // Зберігаємо поточну сторінку в sessionStorage
           sessionStorage.setItem("currentPage", page);
         }
 
-        // Закриття бічного меню після вибору сторінки (опціонально)
         var sideMenu = document.querySelector(".side-menu");
         sideMenu.style.width = "0";
       }
 
-      // Обробник подій для закриття меню при кліці на пусте місце
       function closeMenu() {
         var sideMenu = document.querySelector(".side-menu");
         sideMenu.style.width = "0";
